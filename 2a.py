@@ -15,7 +15,6 @@ print(math)
 
 
 
-# Ploting the scores as scatter plot
 fig = plt.figure()
 ax = Axes3D(fig)
 ax.scatter(math, read, write, color='r')
@@ -37,9 +36,11 @@ def cost_function(X, Y, B):
     m = len(Y)
     J = np.sum((X.dot(B) - Y) ** 2)/(2 * m)
     return J
+
 inital_cost = cost_function(X, Y, B)
 print("Initial Cost")
 print(inital_cost)
+
 def gradient_descent(X, Y, B, alpha, iterations):
     cost_history = [0] * iterations
     m = len(Y)
@@ -51,6 +52,7 @@ def gradient_descent(X, Y, B, alpha, iterations):
     cost = cost_function(X, Y, B)
     cost_history[iteration] = cost
     return B, cost_history
+
 newB, cost_history = gradient_descent(X, Y, B, alpha, 100000)
 print("New Coefficients")
 print(newB)
